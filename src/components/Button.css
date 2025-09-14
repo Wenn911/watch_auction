@@ -1,0 +1,39 @@
+.tg-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.tg-button-primary {
+  background-color: #40a7e3;
+  color: white;
+}
+
+.tg-button-primary:hover {
+  background-color: #2b96d3;
+}
+
+.tg-button-primary:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.tg-button-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.tg-button-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.tg-button-secondary:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
