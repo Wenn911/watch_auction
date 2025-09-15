@@ -5,7 +5,7 @@ import { NavLink, NavLinkProps } from 'react-router-dom'
 
 import { useTelegram } from '$/hooks/useTelegram'
 
-import ActiveAuctionsIcon from '../../assets/ActiveAuctions.svg?react'
+import ActiveAuctionsIcon from '../../assets/activeAuctions.svg?react'
 import EndIcon from '../../assets/countdownTimer.svg?react'
 import MedalIcon from '../../assets/medal.svg?react'
 import PlusIcon from '../../assets/plus.svg?react'
