@@ -1,12 +1,12 @@
-import React from 'react';
-import { useTelegram } from '../hooks/useTelegram';
-import './UserCard.css';
+import React from 'react'
+import { useTelegram } from '../hooks/useTelegram'
+import './UserCard.css'
 
 export const UserCard: React.FC = () => {
-  const { user } = useTelegram();
+  const { user } = useTelegram()
 
   if (!user) {
-    return <div className="user-card">Пользователь не найден</div>;
+    return <div className="user-card">Пользователь не найден</div>
   }
 
   return (
@@ -21,5 +21,5 @@ export const UserCard: React.FC = () => {
         {user.is_premium && <p><strong>Premium:</strong> ✅</p>}
       </div>
     </div>
-  );
-};
+  )
+}

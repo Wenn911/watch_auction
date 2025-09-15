@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 32 32">
+  <title>39-Auction</title>
+  <g id="_39-Auction" data-name="39-Auction">
+    <path d="M31,4H16V1a1,1,0,0,0-1-1H1A1,1,0,0,0,0,1V5A1,1,0,0,0,1,6H2v6H1a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H15a1,1,0,0,0,1-1V13a1,1,0,0,0-1-1H14V10H31a1,1,0,0,0,1-1V5A1,1,0,0,0,31,4ZM14,16H2V14H14ZM4,12V6h8v6Zm9-8H2V2H14V4ZM26,8H14V6H26Z" />
+    <path d="M26,27a1,1,0,0,0-1-1H23V24a1,1,0,0,0-1-1H4a1,1,0,0,0-1,1v2H1a1,1,0,0,0-1,1v5H32V30H26ZM5,25H21v1H5Zm19,5H2V28H24Z" />
+  </g>
+</svg>

@@ -7,6 +7,7 @@ export const useTelegram = () => {
 
   useEffect(() => {
     const tg = window.Telegram?.WebApp;
+    
     if (tg) {
       tg.ready();
       setUser(tg.initDataUnsafe?.user);

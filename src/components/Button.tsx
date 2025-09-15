@@ -1,5 +1,5 @@
-import React from 'react';
-import './Button.css';
+import React from 'react'
+import './Button.css'
 
 interface ButtonProps {
   onClick: () => void;
@@ -22,5 +22,5 @@ export const Button: React.FC<ButtonProps> = ({
     >
       {children}
     </button>
-  );
-};
+  )
+}
