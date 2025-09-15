@@ -3,12 +3,13 @@ import type { FC, SVGProps } from 'react'
 import { chakra } from '@chakra-ui/react'
 import { NavLink, NavLinkProps } from 'react-router-dom'
 
-import ActiveAuctionsIcon from '$/assets/ActiveAuctions.svg?react'
-import EndIcon from '$/assets/countdownTimer.svg?react'
-import MedalIcon from '$/assets/medal.svg?react'
-import PlusIcon from '$/assets/plus.svg?react'
-import StarIcon from '$/assets/star.svg?react'
 import { useTelegram } from '$/hooks/useTelegram'
+
+import ActiveAuctionsIcon from '../../assets/ActiveAuctions.svg?react'
+import EndIcon from '../../assets/countdownTimer.svg?react'
+import MedalIcon from '../../assets/medal.svg?react'
+import PlusIcon from '../../assets/plus.svg?react'
+import StarIcon from '../../assets/star.svg?react'
 
 const modules = [
   {
