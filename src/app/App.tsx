@@ -3,7 +3,7 @@ import { Navbar } from '$/containers/Navbar'
 import { useTelegram } from '../hooks/useTelegram'
 
 function App() {
-  const { showAlert, closeApp, isTelegram, theme } = useTelegram()
+  const { isTelegram } = useTelegram()
 
   return (
     <div className="container">

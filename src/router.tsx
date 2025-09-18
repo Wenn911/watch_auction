@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router";
 
 import { AppLayout } from "./layout";
+import { auctionsRoutes } from "./routes/AuctionsRoutes";
 
 export const router = createBrowserRouter(
   [
@@ -11,12 +12,9 @@ export const router = createBrowserRouter(
       children: [
         {
           index: true,
-          element: <Navigate replace to="/active" />
+          element: <Navigate replace to="active" />
         },
-        {
-          path: "active",
-          element: <div>active</div>
-        },
+        auctionsRoutes,
         {
           path: "saved",
           element: <div>saved</div>
