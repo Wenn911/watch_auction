@@ -12,6 +12,8 @@ export const AppLayout = () => {
       gap="16px 24px"
       gridTemplateRows="auto 1fr auto"
       minHeight="100dvh"
+      paddingTop="var(--tg-content-safe-area-inset-top)"
+      paddingBottom="var(--tg-content-safe-area-inset-bottom)"
     >
       <chakra.div display="flex" justifyContent="center">
         <chakra.div>ChronoPenis</chakra.div>

@@ -76,7 +76,7 @@ const NavbarElement = ({ link, name, icon: Icon }: NavbarElementProps) => {
           fill: '#FFBF3E',
 
           '@media screen and (min-width: 48em)': {
-            bgColor: 'rgba(87, 92, 112, 0.3)'
+            bgColor: 'rgba(108, 116, 149, 0.3)'
           }
         }
       }}
@@ -103,6 +103,7 @@ export const Navbar = () => {
       gridColumn="1 / -1"
       gridRowEnd="-1"
       position="sticky"
+      paddingBottom="var(--tg-content-safe-area-inset-bottom)"
       inset="auto auto 0"
       zIndex="1"
     >
