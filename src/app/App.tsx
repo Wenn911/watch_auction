@@ -1,21 +1,19 @@
-import { Navbar } from '$/containers/Navbar'
+import { RouterProvider } from 'react-router'
 
-import { useTelegram } from '../hooks/useTelegram'
+import { Provider } from 'react-redux'
 
-function App() {
-  const { isTelegram } = useTelegram()
+import { router } from '$/router'
 
+import { Provider as ChakraProvider } from './ChakraProvider'
+import { store } from './store'
+
+export const App = () => {
   return (
-    <div className="container">
-      {isTelegram ? 
-          (<Navbar />)
-        : (
-            <div className="warning">
-              <h2>⚠️ Это приложение предназначено для запуска в Telegram</h2>
-              <p>Откройте приложение через Telegram бота для полного функционала</p>
-            </div>
-          )}
-    </div>
+    <Provider store={store}>
+      <ChakraProvider>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </Provider>
   )
 }
 

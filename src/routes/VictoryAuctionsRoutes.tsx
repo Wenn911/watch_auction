@@ -1,15 +1,15 @@
 import type { RouteObject } from "react-router";
 
-export const auctionsRoutes: RouteObject = {
-  path: "active",
+export const victoryAuctionsRoutes: RouteObject = {
+  path: "win",
   children: [
     {
       index: true,
       lazy: async () => {
-        const { PageActiveAuctions } = await import("$/pages/PageActiveAuctions/PageActiveAuctions")
+        const { PageVictoryAuctions } = await import("$/pages/PageVictoryAuctions/PageVictoryAuctions")
 
         return {
-          Component: PageActiveAuctions
+          Component: PageVictoryAuctions
         }
       }
     },

@@ -1,7 +1,9 @@
 import { createBrowserRouter, Navigate } from "react-router";
 
 import { AppLayout } from "./layout";
-import { auctionsRoutes } from "./routes/AuctionsRoutes";
+import { activeAuctionsRoutes } from "./routes/ActiveAuctionsRoutes";
+import { endAuctionsRoutes } from "./routes/EndAuctionsRoutes";
+import { victoryAuctionsRoutes } from "./routes/VictoryAuctionsRoutes";
 
 export const router = createBrowserRouter(
   [
@@ -14,19 +16,9 @@ export const router = createBrowserRouter(
           index: true,
           element: <Navigate replace to="active" />
         },
-        auctionsRoutes,
-        {
-          path: "saved",
-          element: <div>saved</div>
-        },
-        {
-          path: "win",
-          element: <div>Выигранные</div>
-        },
-        {
-          path: "end",
-          element: <div>Завершенные</div>
-        },
+        activeAuctionsRoutes,
+        victoryAuctionsRoutes,
+        endAuctionsRoutes,
         {
           path: '*',
           element: <Navigate replace to="/" />

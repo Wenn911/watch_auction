@@ -11,7 +11,7 @@ export const Header = () => {
   const navigate = useNavigate();
   
   const showBackButton = useMemo(() => 
-    (!/\/(active)$/gi.test(pathname)),
+    (!/\/(active|win|saved|end)$/gi.test(pathname)),
   [pathname]);
 
   const goBack = () => navigate(-1);

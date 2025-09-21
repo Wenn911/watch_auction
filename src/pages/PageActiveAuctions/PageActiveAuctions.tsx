@@ -1,17 +1,12 @@
 import { chakra } from "@chakra-ui/react"
 
-import { ActiveAuctions } from "$/containers/ActiveAuctions/ActiveAuctions"
+import { AppText } from "$/components/AppText"
+import { ActiveAuctions } from "$/containers/ActiveAuctions"
 
 export const PageActiveAuctions = () => {
   return (
     <chakra.div display="grid" gap="32px">
-      <chakra.text 
-        fontSize="32px"
-        lineHeight="48px"
-        fontWeight="600"
-      >
-        Активные аукционы
-      </chakra.text>
+      <AppText text="Активные аукционы" size="L" variant="semibold" />
       <ActiveAuctions />
     </chakra.div> 
   )
