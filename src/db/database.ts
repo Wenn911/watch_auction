@@ -12,10 +12,9 @@ const dbConfig: PoolOptions = {
   database: process.env.DB_NAME,
   port: Number(process.env.DB_PORT) || 3306,
   waitForConnections: true,
-  // ssl: {
-  //   ca: fs.readFileSync(path.join(os.homedir(), '.cloud-certs', 'root.crt'), 'utf-8'),
-  //   rejectUnauthorized: true
-  // }
+  ssl: {
+        rejectUnauthorized: false
+    }
 };
 
 const connection = mysql.createPool(dbConfig);
