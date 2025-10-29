@@ -1,26 +1,16 @@
-import type { ComponentProps } from 'react';
-
-import { chakra } from '@chakra-ui/react';
-
-import SmileIcon from '$/assets/smile.svg?react';
+import SmileIcon from '../../../public/smile.svg';
 
 import { AppText } from '../AppText';
 
-interface EmptyProps extends ComponentProps<typeof chakra.div> {
+interface EmptyProps {
   text: string
 }
 
-export const Empty = ({ text, ...otherProps }: EmptyProps) => {
+export const Empty = ({ text }: EmptyProps) => {
   return (
-    <chakra.div 
-      display="grid"
-      gap="16px"
-      justifyContent="center"
-      justifyItems="center"
-      {...otherProps}
-    >
+    <div className='grid gap-16 justify-center justify-items-center'>
       <SmileIcon width="24" height="24" />
       <AppText text={text} size="M" />  
-    </chakra.div>
+    </div>
   )
 }

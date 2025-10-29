@@ -1,7 +1,15 @@
+@import 'tailwindcss';
+
+@theme {
+  --spacing: 0.0625rem;
+}
+
+:root {
+  --primary: hsla(178, 90%, 38%, 1)
+}
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {

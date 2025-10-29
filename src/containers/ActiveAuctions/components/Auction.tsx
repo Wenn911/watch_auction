@@ -1,83 +1,59 @@
-import { Link } from "react-router";
+import Image from "next/image";
+import Link from "next/link";
 
-import { chakra } from "@chakra-ui/react";
+import { AppText } from "$/components/AppText";
+import type { Watch } from "$/db/schema";
 
-import type { AuctionData } from "$/types/auction.types";
-
-export const Auction = ({ auction }: { auction: AuctionData }) => {
-  const { id, name, startDt, startPrice, image } = auction
+export const ActiveAuction = ({ auction }: { auction: Watch }) => {
+  const { id, name, price, startTime, image } = auction;
 
   return (
-    <chakra.div
-      as={Link}
-      // @ts-ignore
-      to={id}
-      display="flex"
-      gap="12px"
-      backgroundColor="rgba(29, 29, 29)"
-      padding="12px"
-      borderRadius="8px"
-    >
-      <chakra.img src={image} width="160px" height="160px" borderRadius="16px" />
-      <chakra.div display="grid" gap="8px">
-        <chakra.text
-          fontSize="24px"
-          lineHeight="32px" 
-          fontWeight="600"
-        >
-          {name}
-        </chakra.text>
-        <chakra.div
-          display="flex"
-          justifyContent="space-between"
-          gap="8px"
-        >
-          <chakra.div 
-            display="grid"
-            alignContent="center"
-            justifyItems="center"
-          >
-            <chakra.text
-              fontSize="14px"
-              lineHeight="20px"
-              fontWeight="500"
-              textAlign="center"
-              color="rgba(255, 255, 255, 1)"
-            >
-              Стартовая цена
-            </chakra.text>
-            <chakra.text
-              fontSize="14px"
-              lineHeight="20px"
-              color="rgba(255, 255, 255, 0.8)"
-            >
-              {startPrice}
-            </chakra.text>
-          </chakra.div>
-          <chakra.div
-            display="grid"
-            alignContent="center"
-            justifyItems="center"
-          >
-            <chakra.text
-              fontSize="14px"
-              lineHeight="20px"
-              fontWeight="500"
-              textAlign="center"
-              color="rgba(255, 255, 255, 1)"
-            >
-              До начала аукциона
-            </chakra.text>
-            <chakra.text
-              fontSize="14px"
-              lineHeight="20px"
-              color="rgba(255, 255, 255, 0.8)"
-            >
-              {startDt}
-            </chakra.text>
-          </chakra.div>
-        </chakra.div>
-      </chakra.div>
-    </chakra.div> 
+    <Link href={`/active/${id}`}>
+      <div
+        className="flex gap-12 bg-[rgba(87,92,112,0.3)] p-12 
+        rounded-lg relative overflow-hidden before:content-[''] before:absolute
+        before:w-200 before:h-200 before:top-[-110px] before:left-169
+        before:bg-[radial-gradient(66.32%_66.32%_at_50%_50%,var(--primary)_0%,rgba(0,0,0,0)_100%)]
+        before:rounded-full before:blur-[76px]"
+      >
+        {image ? 
+            <Image src={image} width="160" height="160" className="rounded-2xl z-1" alt="img" /> 
+          : 
+            <div className="w-160 h-160 rounded-2xl bg-[rgba(87,92,112,0.5)] z-1" />}
+        <div className="grid gap-8 z-1">
+          <AppText
+            size="L"
+            variant="semibold"
+            text={name}
+          />
+          <div className="flex justify-between gap-8">
+            <div className="grid content-center justify-items-center">
+              <AppText
+                size="S"
+                variant="medium"
+                text="Стартовая цена"
+              />
+              <AppText
+                size="S"
+                variant="medium"
+                text={price}
+              />
+            </div>
+            <div className="grid content-center justify-items-center">
+              <AppText
+                size="S"
+                variant="medium"
+                text="До начала аукциона"
+              />
+              <AppText
+                size="S"
+                variant="medium"
+                text={startTime}
+              />
+            </div>
+          </div>
+        </div>
+      </div> 
+    </Link>
   )
 }

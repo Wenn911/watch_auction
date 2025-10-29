@@ -1,47 +1,32 @@
+'use client'
+ 
 import { useMemo } from "react";
-import { useLocation, useNavigate } from "react-router";
 
-import { chakra } from "@chakra-ui/react"
+import Image from "next/image";
+import { usePathname, useRouter } from 'next/navigation';
 
-import BackButtonIcon from "$/assets/backButton.svg?react"; 
-import LogoIcon from "$/assets/logo.svg?react"; 
+import { AppText } from "$/components/AppText";
 
 export const Header = () => {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const router = useRouter();
+  const pathname = usePathname()
   
   const showBackButton = useMemo(() => 
     (!/\/(active|win|saved|end)$/gi.test(pathname)),
   [pathname]);
 
-  const goBack = () => navigate(-1);
+  const goBack = () => router.back();
 
   return (
-    <chakra.div
-      display="flex"
-      gap="12px"
-      padding="12px 24px"
-      alignItems="center" 
-      borderBottom="1px solid rgba(255, 255, 255, 0.2)"
-    >
-      <LogoIcon width="32" height="32" />
-      <chakra.button
-        visibility={showBackButton ? 'visible' : 'hidden'}
-        display="flex"
-        gap="8px"
-        textDecoration="none"
+    <header className="flex gap-12 px-24 py-12 items-center border-b border-white/20">
+      <Image src="/logo.jpg" width="32" height="32" alt="header" />
+      <button
+        className={`flex gap-8 items-center no-underline ${showBackButton ? 'visible' : 'invisible'}`}
         onClick={goBack}
-        alignItems="center"
       >
-        <BackButtonIcon />
-        <chakra.text 
-          fontSize="16px"
-          lineHeight="24px"
-          fontWeight="500"
-        >
-          Назад
-        </chakra.text>
-      </chakra.button>
-    </chakra.div>
+        <Image src="/backButton.svg" width="24" height="24" alt="BackButton" />
+        <AppText size="M" variant="medium" text="Назад" />
+      </button>
+    </header>
   )
 }

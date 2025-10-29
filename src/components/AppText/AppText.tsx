@@ -1,7 +1,4 @@
-import type { ComponentProps, ComponentType } from "react";
 import { useMemo } from "react";
-
-import { chakra } from "@chakra-ui/react"
 
 interface AppTextProps {
   size?: "S" | "M" | "L";
@@ -9,50 +6,39 @@ interface AppTextProps {
   text: string;
 }
 
-type ChakraTextProps = ComponentProps<typeof chakra.text>;
-type AppTextCompleteProps = AppTextProps & Omit<ChakraTextProps, keyof AppTextProps>;
-
-export const AppText = (props: AppTextCompleteProps) => {
-  const { size = "S", variant = "default", text, ...otherProps } = props
+export const AppText = (props: AppTextProps) => {
+  const { size = "S", variant = "default", text } = props
   const selectedSize = useMemo(() => {
     if (size === 'M') {
       return {
-        fontSize: '16px',
-        lineHeight: '24px'
+        fontSize: 'text-base',
+        lineHeight: 'leading-6'
       }
     }
     if (size === 'L') {
       return {
-        fontSize: '32px',
-        lineHeight: '48px'
+        fontSize: 'text-3xl',
+        lineHeight: 'leading-[48px]'
       }
     }
 
     return {
-      fontSize: '10px',
-      lineHeight: '18px'
+      fontSize: 'text-xs',
+      lineHeight: 'leading-[18px]'
     }
   }, [size])
 
   const selectedVariant = useMemo(() => {
-    if (variant === 'medium') {
-      return '500'
-    }
-    if (variant === 'semibold') {
-      return '600'
+    if (variant) {
+      return 'font-' + variant;
     }
 
-    return '400'
+    return 'font-normal'
   }, [variant])
 
   return (
-    <chakra.text
-      fontSize={selectedSize.fontSize}
-      lineHeight={selectedSize.lineHeight}
-      fontWeight={selectedVariant}
-      {...otherProps}
-    >
+    <p className={`${selectedSize.fontSize} ${selectedSize.lineHeight} ${selectedVariant}`}>
       {text}
-    </chakra.text>
+    </p>
   )
 }

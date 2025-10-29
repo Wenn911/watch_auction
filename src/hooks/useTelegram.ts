@@ -1,14 +1,21 @@
-import { useState, useEffect } from 'react';
-import type { WebAppUser } from 'telegram-web-app';
+'use client'
+
+import { useEffect, useState } from 'react';
+
+import type { WebApp, WebAppUser } from 'telegram-web-app';
 
 export const useTelegram = () => {
   const [user, setUser] = useState<WebAppUser>();
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [isTelegram, setTelegram] = useState<boolean>(false);
+  const [webApp, setWebApp] = useState<WebApp>();
 
   useEffect(() => {
     const tg = window.Telegram?.WebApp;
     
     if (tg) {
+      setTelegram(true)
+      setWebApp(tg)
       tg.ready();
       setUser(tg.initDataUnsafe?.user);
       setTheme(tg.colorScheme);
@@ -38,7 +45,7 @@ export const useTelegram = () => {
     theme,
     showAlert,
     closeApp,
-    isTelegram: !!window.Telegram,
-    webApp: window.Telegram?.WebApp
+    isTelegram,
+    webApp
   };
 };

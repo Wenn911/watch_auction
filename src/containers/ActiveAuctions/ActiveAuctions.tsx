@@ -1,43 +1,22 @@
-import { chakra } from "@chakra-ui/react"
+import { getWatches } from "$/api"
 
-import WatchExample from '$/assets/images/watch_example.jpg'
-import type { AuctionData } from "$/types/auction.types"
+import { ActiveAuction } from "./components"
 
-import { Auction } from "./components"
+export const ActiveAuctions = async () => {
+  const allItems = await getWatches();
 
-const auctions: AuctionData[] = [
-  {
-    id: '1',
-    name: 'Rolex',
-    startPrice: '15 кириешек',
-    startDt: '15:12:34',
-    image: WatchExample,
-  },
-  {
-    id: '2',
-    name: 'AP',
-    startPrice: '20 кириешек',
-    image: WatchExample,
-    startDt: '15:12:34'
-  },
-  {
-    id: '3',
-    name: 'VC',
-    startPrice: '3 пачки чипсов лейс',
-    startDt: '15:12:34',
-    image: WatchExample,
-  },
-]
+  // if (isLoading) return <Skeleton width="100%" height="100%" />
 
-export const ActiveAuctions = () => {
+  // if (!data) return null
+
   return (
-    <chakra.div display="grid" gap="16px">
-      {auctions.map((item) => (
-        <Auction
+    <div className="grid gap-16">
+      {allItems.map((item) => (
+        <ActiveAuction
           key={item.id} 
           auction={item}
         />
       ))}
-    </chakra.div>
+    </div>
   )
 }
