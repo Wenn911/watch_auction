@@ -1,10 +1,18 @@
-import { getWatch } from "$/api";
+import { getWatch, getWatches } from "$/api";
 import { AppText } from "$/components/AppText";
+
+export async function generateStaticParams() {
+  const allItems = await getWatches();
+ 
+  return allItems.map((post) => ({
+    itemId: post.id.toString(),
+  }))
+}
 
 export default async function ItemPage({
   params,
 }: {
-  params: { itemId: string };
+  params: Promise<{ itemId: string }>;
 }) {
   const { itemId } = await params;
 
