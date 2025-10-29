@@ -1,6 +1,3 @@
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
 
 import { drizzle } from 'drizzle-orm/mysql2';
 import type { PoolOptions } from 'mysql2/promise';
@@ -15,10 +12,10 @@ const dbConfig: PoolOptions = {
   database: process.env.DB_NAME,
   port: Number(process.env.DB_PORT) || 3306,
   waitForConnections: true,
-  ssl: {
-    ca: fs.readFileSync(path.join(os.homedir(), '.cloud-certs', 'root.crt'), 'utf-8'),
-    rejectUnauthorized: true
-  }
+  // ssl: {
+  //   ca: fs.readFileSync(path.join(os.homedir(), '.cloud-certs', 'root.crt'), 'utf-8'),
+  //   rejectUnauthorized: true
+  // }
 };
 
 const connection = mysql.createPool(dbConfig);
