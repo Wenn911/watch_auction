@@ -1,44 +1,41 @@
-import { useMemo } from "react";
+import type { HTMLAttributes } from "react";
 
-interface AppTextProps {
-  size?: "S" | "M" | "L";
-  variant?: "default" | "medium" | "semibold"
-  text: string;
+interface AppTextProps extends HTMLAttributes<HTMLParagraphElement> {
+    size?: "S" | "M" | "L";
+    variant?: "normal" | "medium" | "semibold"
+    text: string;
+    className?: string;
 }
 
 export const AppText = (props: AppTextProps) => {
-  const { size = "S", variant = "default", text } = props
-  const selectedSize = useMemo(() => {
+    const { size = "S", variant, text, className = "", ...otherProps } = props;
+
+    let fontSize = 'text-xs';
+    let lineHeight = 'leading-[18px]';
+    let fontWeight = 'font-normal';
+
     if (size === 'M') {
-      return {
-        fontSize: 'text-base',
-        lineHeight: 'leading-6'
-      }
-    }
-    if (size === 'L') {
-      return {
-        fontSize: 'text-3xl',
-        lineHeight: 'leading-[48px]'
-      }
+        fontSize = 'text-base';
+        lineHeight = 'leading-6';
+    } else if (size === 'L') {
+        fontSize = 'text-3xl';
+        lineHeight = 'leading-[48px]';
     }
 
-    return {
-      fontSize: 'text-xs',
-      lineHeight: 'leading-[18px]'
-    }
-  }, [size])
-
-  const selectedVariant = useMemo(() => {
-    if (variant) {
-      return 'font-' + variant;
+    if (variant === 'medium') {
+        fontWeight = 'font-medium';
+    } else if (variant === 'semibold') {
+        fontWeight = 'font-semibold';
     }
 
-    return 'font-normal'
-  }, [variant])
+    const combinedClassName = `${fontSize} ${lineHeight} ${fontWeight} ${className}`.trim();
 
-  return (
-    <p className={`${selectedSize.fontSize} ${selectedSize.lineHeight} ${selectedVariant}`}>
-      {text}
-    </p>
-  )
-}
+    return (
+        <p
+            className={combinedClassName}
+            {...otherProps}
+        >
+            {text}
+        </p>
+    );
+};

@@ -1,11 +1,29 @@
-import pluginReact from 'eslint-plugin-react'
-import pluginReactHooks from 'eslint-plugin-react-hooks'
-import unusedImports from 'eslint-plugin-unused-imports'
-import tseslint from 'typescript-eslint'
+import stylistic from '@stylistic/eslint-plugin';
+import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import unusedImports from 'eslint-plugin-unused-imports';
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
     ignores: ['.next/**', '**/*.d.ts', 'node_modules/**', 'dist'],
+  },
+  {
+    plugins: {
+      '@stylistic': stylistic,
+    },
+    rules: {
+      '@stylistic/indent': ['error', 4],
+      '@stylistic/semi': ['error', 'always'],
+      '@stylistic/no-trailing-spaces' : ['error'],
+      '@stylistic/eol-last' : 'error',
+      '@stylistic/max-len' : [2, 150, {
+          ignoreUrls : true,
+          ignoreTrailingComments : true,
+          ignoreRegExpLiterals : true,
+        },
+      ],
+    },
   },
   {
     files: ['**/*.{ts,tsx}'],
