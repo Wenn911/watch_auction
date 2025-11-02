@@ -3,6 +3,7 @@ dist
 dist-ssr
 .env
 drizzle
+.next
 
 # Editor directories and files
 .vscode/*
