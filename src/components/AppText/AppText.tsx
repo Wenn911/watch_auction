@@ -16,7 +16,7 @@ export const AppText = (props: AppTextProps) => {
 
     if (size === 'M') {
         fontSize = 'text-base';
-        lineHeight = 'leading-6';
+        lineHeight = 'leading-[24px]';
     } else if (size === 'L') {
         fontSize = 'text-3xl';
         lineHeight = 'leading-[48px]';

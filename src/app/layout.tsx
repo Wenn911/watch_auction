@@ -18,7 +18,7 @@ export default function RootLayout({
             <head>
                 <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
             </head>
-            <body>
+            <body className="font-cinzel">
                 <div className="grid
         grid-rows-[auto_1fr_auto] gap-[16px_24px] min-h-dvh
         pt-(--tg-content-safe-area-inset-top) pb-(--tg-content-safe-area-inset-bottom)"
