@@ -1,14 +1,14 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes } from 'react';
 
 interface AppTextProps extends HTMLAttributes<HTMLParagraphElement> {
-    size?: "S" | "M" | "L";
-    variant?: "normal" | "medium" | "semibold"
+    size?: 'S' | 'M' | 'L';
+    variant?: 'normal' | 'medium' | 'semibold';
     text: string;
     className?: string;
 }
 
 export const AppText = (props: AppTextProps) => {
-    const { size = "S", variant, text, className = "", ...otherProps } = props;
+    const { size = 'S', variant, text, className = '', ...otherProps } = props;
 
     let fontSize = 'text-xs';
     let lineHeight = 'leading-[18px]';

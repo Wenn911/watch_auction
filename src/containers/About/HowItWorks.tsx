@@ -1,15 +1,20 @@
-import { AppText } from "$/components/AppText";
+import { AppText } from '$/components/AppText';
 
 export const HowItWorks = () => {
     return (
-        <div className="grid gap-12 bg-[rgba(87,92,112,0.3)] rounded-lg p-12">
-            <AppText className="text-(--primary)" size="L" variant="semibold" text="Как это работает?" />
+        <div className="grid gap-12 rounded-lg bg-[rgba(87,92,112,0.3)] p-12">
+            <AppText
+                className="text-(--primary)"
+                size="L"
+                variant="semibold"
+                text="Как это работает?"
+            />
             <AppText
                 size="M"
                 text="Всего 4 простых шага до вашей новой покупки или успешной продажи."
             />
-            <div className="flex flex-col ml-24">
-                <ol className="list-decimal flex flex-col gap-12 text-(--primary)">
+            <div className="ml-24 flex flex-col">
+                <ol className="flex list-decimal flex-col gap-12 text-(--primary)">
                     <li>
                         <AppText
                             size="M"

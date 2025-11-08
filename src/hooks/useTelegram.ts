@@ -46,6 +46,6 @@ export const useTelegram = () => {
         showAlert,
         closeApp,
         isTelegram,
-        webApp
+        webApp,
     };
 };

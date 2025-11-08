@@ -1,31 +1,43 @@
 'use client';
 
-import { useMemo } from "react";
+import { useMemo } from 'react';
 
-import Image from "next/image";
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { AppText } from "$/components/AppText";
+import { AppText } from '$/components/AppText';
 
 export const Header = () => {
     const router = useRouter();
     const pathname = usePathname();
 
-    const showBackButton = useMemo(() =>
-        (!/\/(active|win|saved|end)$/gi.test(pathname)),
-    [pathname]);
+    const showBackButton = useMemo(() => !/\/(active|win|saved|end)$/gi.test(pathname), [pathname]);
 
     const goBack = () => router.back();
 
     return (
-        <header className="sticky top-0 bg-black flex gap-12 px-24 py-12 items-center border-b border-white/20 z-2">
-            <Image src="/logo.jpg" width="32" height="32" alt="header" />
+        <header className="sticky top-0 z-2 flex items-center gap-12 border-b border-white/20 bg-black px-24 py-12">
+            <Image
+                src="/logo.png"
+                width="32"
+                height="32"
+                alt="header"
+            />
             <button
-                className={`flex gap-8 items-center no-underline ${showBackButton ? 'visible' : 'invisible'}`}
+                className={`flex items-center gap-8 no-underline ${showBackButton ? 'visible' : 'invisible'}`}
                 onClick={goBack}
             >
-                <Image src="/backButton.svg" width="24" height="24" alt="BackButton" />
-                <AppText size="M" variant="medium" text="Назад" />
+                <Image
+                    src="/backButton.svg"
+                    width="24"
+                    height="24"
+                    alt="BackButton"
+                />
+                <AppText
+                    size="M"
+                    variant="medium"
+                    text="Назад"
+                />
             </button>
         </header>
     );

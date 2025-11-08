@@ -1,7 +1,7 @@
 export interface AuctionData {
-  id: string;
-  name: string;
-  price: string;
-  startTime: string;
-  image: string;
+    id: string;
+    name: string;
+    price: string;
+    startTime: string;
+    image: string;
 }

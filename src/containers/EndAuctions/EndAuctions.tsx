@@ -1,13 +1,11 @@
-import { chakra } from "@chakra-ui/react"
+import { chakra } from '@chakra-ui/react';
 
-import { Empty } from "$/components/Empty"
+import { Empty } from '$/components/Empty';
 
 export const EndAuctions = () => {
-  if (![].length) {
-    return <Empty text="Здесь пока нет завершенных аукционов" />
-  }
+    if (![].length) {
+        return <Empty text="Здесь пока нет завершенных аукционов" />;
+    }
 
-  return (
-    <chakra.div />
-  )
-}
+    return <chakra.div />;
+};

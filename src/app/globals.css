@@ -8,7 +8,7 @@
 }
 
 :root {
-  --primary: hsla(178, 90%, 38%, 1)
+  --primary: #1a6159
 }
 
 * {
@@ -21,7 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: black;
   -moz-osx-font-smoothing: grayscale;
-  color: white
+  color: white;
 }
 
 #root {
