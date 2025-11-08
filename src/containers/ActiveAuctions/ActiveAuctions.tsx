@@ -1,21 +1,23 @@
-import { getWatches } from '$/api';
+import { getActiveItems } from '$/api';
 import { Empty } from '$/components/Empty';
 
 import { ActiveAuction } from './components';
 
 export const ActiveAuctions = async () => {
-    const allWatches = await getWatches();
+    const allActiveItems = await getActiveItems();
 
-    if (!allWatches.length) {
+    if (!allActiveItems.length) {
         return <Empty text="Здесь пока нет активных аукционов" />;
     }
 
     return (
         <div className="grid gap-16">
-            {allWatches.map((item) => (
+            {allActiveItems.map((item) => (
                 <ActiveAuction
-                    key={item.id}
-                    auction={item}
+                    key={item.auctions.id_auction}
+                    auction={item.auctions}
+                    item={item.items}
+                    category={item.categories}
                 />
             ))}
         </div>
