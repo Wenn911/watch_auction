@@ -6,13 +6,13 @@ export const Security = () => {
             <AppText
                 className="text-(--primary)"
                 size="L"
-                variant="semibold"
                 text="Безопасность — наш приоритет"
+                variant="semibold"
             />
             <AppText
                 size="M"
-                variant="semibold"
                 text="Мы понимаем, что имеем дело с ценными активами. Поэтому мы внедрили многоуровневую систему защиты:"
+                variant="semibold"
             />
             <div className="ml-24 flex flex-col">
                 <ul className="flex list-disc flex-col gap-12 text-(--primary)">
@@ -22,8 +22,8 @@ export const Security = () => {
                             text="Предварительная проверка лотов"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Каждый предмет перед попаданием в каталог проходит базовую верификацию."
                         />
                     </li>
@@ -33,8 +33,8 @@ export const Security = () => {
                             text="Прозрачность сделки"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Четкие правила аукциона и условия оплаты."
                         />
                     </li>
@@ -44,8 +44,8 @@ export const Security = () => {
                             text="Поддержка на каждом этапе"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Наша служба заботы поможет разрешить любые вопросы между покупателем и продавцом."
                         />
                     </li>

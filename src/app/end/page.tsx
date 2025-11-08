@@ -5,8 +5,8 @@ export default async function EndAuctionsPage() {
     return (
         <div className="grid gap-32">
             <AppText
-                text="Активные аукционы"
                 size="L"
+                text="Активные аукционы"
                 variant="semibold"
             />
             <EndAuctions />

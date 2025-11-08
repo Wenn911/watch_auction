@@ -20,18 +20,18 @@ export const Navbar = () => {
             {navbarElements.map((item) => (
                 <NavbarElement
                     key={item.id}
+                    icon={item.icon}
                     link={item.link}
                     name={item.name}
-                    icon={item.icon}
                 />
             ))}
             <div
-                onClick={handleClick}
                 className="group flex flex-col items-center justify-center gap-4 rounded-lg p-8 text-white/60 transition-colors duration-200 ease-in hover:bg-gray-600/30 active:bg-gray-600/30"
+                onClick={handleClick}
             >
                 <PlusIcon
-                    width="28"
                     height="28"
+                    width="28"
                 />
                 <AppText text="Предложить" />
             </div>

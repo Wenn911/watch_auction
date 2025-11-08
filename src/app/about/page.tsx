@@ -6,8 +6,8 @@ const AboutPage = async () => {
         <section className="grid gap-24 px-24">
             <AppText
                 size="L"
-                variant="semibold"
                 text="О проекте"
+                variant="semibold"
             />
             <Info />
             <WhatIsIt />

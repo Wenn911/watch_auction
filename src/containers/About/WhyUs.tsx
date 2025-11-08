@@ -6,8 +6,8 @@ export const WhyUs = () => {
             <AppText
                 className="text-(--primary)"
                 size="L"
-                variant="semibold"
                 text="Почему выбирают нас?"
+                variant="semibold"
             />
             <div className="ml-24 flex flex-col">
                 <ul className="flex list-disc flex-col gap-12 text-(--primary)">
@@ -17,8 +17,8 @@ export const WhyUs = () => {
                             text="Доступ к роскоши"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="В нашем каталоге только проверенные, аутентичные лоты — от культовых марок часов до уникальных ювелирных изделий."
                         />
                     </li>
@@ -28,8 +28,8 @@ export const WhyUs = () => {
                             text="Мгновенность"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Все уведомления о ставках и результатах аукционов приходят вам в Telegram. Вы всегда в курсе событий."
                         />
                     </li>
@@ -39,8 +39,8 @@ export const WhyUs = () => {
                             text="Простота"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Интуитивно понятный интерфейс. Сделать ставку так же просто, как отправить сообщение."
                         />
                     </li>
@@ -50,8 +50,8 @@ export const WhyUs = () => {
                             text="Конфиденциальность"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Мы уважаем вашу приватность. Все сделки проходят с максимальным уровнем discretion."
                         />
                     </li>
@@ -61,8 +61,8 @@ export const WhyUs = () => {
                             text="Экспертное сообщество"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Присоединяйтесь к кругу знатоков и коллекционеров. Мы тщательно проверяем продавцов."
                         />
                     </li>

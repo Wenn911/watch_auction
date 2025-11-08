@@ -6,8 +6,8 @@ export const HowItWorks = () => {
             <AppText
                 className="text-(--primary)"
                 size="L"
-                variant="semibold"
                 text="Как это работает?"
+                variant="semibold"
             />
             <AppText
                 size="M"
@@ -21,8 +21,8 @@ export const HowItWorks = () => {
                             text="Откройте приложение"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Начните прямо сейчас, не выходя из Telegram. Никаких скачиваний и долгих регистраций."
                         />
                     </li>
@@ -32,8 +32,8 @@ export const HowItWorks = () => {
                             text="Выберите лот"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Изучите каталог с подробными описаниями, фотографиями и историей лотов. Участвуйте в текущих аукционах."
                         />
                     </li>
@@ -43,8 +43,8 @@ export const HowItWorks = () => {
                             text="Сделайте ставку"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Установите свою цену всего в одно нажатие. Получайте уведомления, если вашу ставку перебили."
                         />
                     </li>
@@ -54,8 +54,8 @@ export const HowItWorks = () => {
                             text="Победите и получите"
                         />
                         <AppText
-                            size="M"
                             className="text-white"
+                            size="M"
                             text="Выиграйте аукцион и завершите сделку с продавцом безопасно и конфиденциально при нашем содействии."
                         />
                     </li>

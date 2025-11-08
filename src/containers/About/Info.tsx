@@ -5,17 +5,17 @@ export const Info = () => {
     return (
         <div className="grid gap-12 rounded-lg bg-[rgba(87,92,112,0.3)] p-12">
             <Image
-                src="/logo.png"
-                className="w-full rounded-lg"
-                width="0"
-                height="0"
                 alt="header"
+                className="w-full rounded-lg"
+                height="0"
+                src="/logo.png"
+                width="0"
             />
             <AppText
                 className="text-(--primary)"
                 size="M"
-                variant="semibold"
                 text="Ваш аукцион роскоши — в телеграме"
+                variant="semibold"
             />
             <AppText
                 size="M"

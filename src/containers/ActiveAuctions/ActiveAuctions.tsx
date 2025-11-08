@@ -16,8 +16,8 @@ export const ActiveAuctions = async () => {
                 <ActiveAuction
                     key={item.auctions.id_auction}
                     auction={item.auctions}
-                    item={item.items}
                     category={item.categories}
+                    item={item.items}
                 />
             ))}
         </div>

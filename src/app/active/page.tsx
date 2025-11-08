@@ -3,10 +3,10 @@ import { ActiveAuctions } from '$/containers/ActiveAuctions';
 
 export default async function ActiveAuctionsPage() {
     return (
-        <div className="grid gap-32">
+        <div className="grid gap-16">
             <AppText
-                text="Активные аукционы"
                 size="L"
+                text="Активные аукционы"
                 variant="semibold"
             />
             <ActiveAuctions />
