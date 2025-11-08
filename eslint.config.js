@@ -1,6 +1,4 @@
 import stylistic from '@stylistic/eslint-plugin';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import prettier from 'eslint-plugin-prettier';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import unusedImports from 'eslint-plugin-unused-imports';
@@ -13,7 +11,6 @@ export default tseslint.config(
     {
         plugins: {
             '@stylistic': stylistic,
-            prettier: prettier,
         },
         rules: {
             '@stylistic/indent': 'off',
@@ -21,23 +18,15 @@ export default tseslint.config(
             '@stylistic/no-trailing-spaces': 'off',
             '@stylistic/eol-last': 'off',
             '@stylistic/max-len': 'off',
-
-            'prettier/prettier': [
-                'error',
-                {
-                    printWidth: 150,
-                },
-            ],
         },
     },
     {
         files: ['**/*.{ts,tsx}'],
-        extends: [tseslint.configs.recommended, eslintConfigPrettier],
+        extends: [tseslint.configs.recommended],
         plugins: {
             react: pluginReact,
             'react-hooks': pluginReactHooks,
             'unused-imports': unusedImports,
-            prettier: prettier,
         },
         rules: {
             '@typescript-eslint/no-unused-vars': 'off',
@@ -58,16 +47,6 @@ export default tseslint.config(
 
             'react/react-in-jsx-scope': 'off',
             'react/prop-types': 'off',
-
-            'prettier/prettier': [
-                'error',
-                {
-                    printWidth: 120,
-                    singleAttributePerLine: true,
-                    jsxBracketSameLine: false,
-                    bracketSameLine: false,
-                },
-            ],
         },
     }
 );
