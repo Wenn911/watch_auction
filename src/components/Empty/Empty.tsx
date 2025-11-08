@@ -10,12 +10,12 @@ export const Empty = ({ text }: EmptyProps) => {
     return (
         <div className="grid justify-center justify-items-center gap-16">
             <SmileIcon
-                width="24"
                 height="24"
+                width="24"
             />
             <AppText
-                text={text}
                 size="M"
+                text={text}
             />
         </div>
     );

@@ -6,8 +6,8 @@ export const WhatIsIt = () => {
             <AppText
                 className="text-(--primary)"
                 size="L"
-                variant="semibold"
                 text="Что это такое?"
+                variant="semibold"
             />
             <AppText
                 size="M"

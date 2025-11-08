@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html
-            lang="en"
             suppressHydrationWarning
+            lang="en"
         >
             <head>
-                <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
+                <script src="https://telegram.org/js/telegram-web-app.js?59" />
             </head>
             <body className="font-cinzel">
                 <div className="grid min-h-dvh grid-rows-[auto_1fr_auto] gap-[16px_24px] pt-(--tg-content-safe-area-inset-top) pb-(--tg-content-safe-area-inset-bottom)">
