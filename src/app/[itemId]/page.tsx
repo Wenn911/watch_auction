@@ -25,7 +25,7 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
 
     const { name_category } = categories;
 
-    const { brand_name, image, item_condition, material, model, productionYear, refCode } = items
+    const { brand_name, image, item_condition, material, model, productionYear} = items
 
     const { accessories, country, crystal, dial, diameter, movement } = watch_details;
 
@@ -104,10 +104,10 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
                             <AppText size="M" variant="medium" text="Material:" />
                             <AppText size="M" text={material} />
                         </div>
-                        <div className="flex items-center justify-between p-5">
+                        {movement && <div className="flex items-center justify-between p-5">
                             <AppText size="M" variant="medium" text="Movement:" />
                             <AppText size="M" text={movement} />
-                        </div>
+                        </div>}
                     </div>
                 </Rollup>
             </div>
