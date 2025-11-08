@@ -4,7 +4,7 @@ import { watches } from '$/db/schema';
 import { items } from '$/db/schema';
 import { auctions } from '$/db/schema';
 import { categories } from '$/db/schema';
-import { watch_details } from '../db/schema.ts';
+import { watch_details } from '$/db/schema';
 
 export async function getActiveItems() {
     try {
