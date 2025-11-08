@@ -7,6 +7,7 @@ export const statusEnum = mysqlEnum('status', ['active', 'ended', 'pending', 'ca
 export const categories = mysqlTable('categories', {
     id_category: int('id_category').primaryKey().autoincrement(),
     name_category: varchar('name_category', { length: 255 }).notNull().unique(),
+    createdAt: timestamp('createdAt').defaultNow(),
 });
 
 export const items = mysqlTable('items', {
@@ -19,15 +20,15 @@ export const items = mysqlTable('items', {
     model: varchar('model', { length: 255 }).notNull(),
     item_condition: itemConditionEnum.notNull(),
     material: varchar('material', { length: 255 }).notNull(),
-    productionYear: int('production_year').notNull(),
+    productionYear: int('productionYear').notNull(),
     image: varchar('image', { length: 255 }).notNull(),
-    createdAt: timestamp('created_at').defaultNow(),
-    updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
+    createdAt: timestamp('createdAt').defaultNow(),
+    updatedAt: timestamp('updatedAt').defaultNow().onUpdateNow(),
 });
 
 export const auctions = mysqlTable('auctions', {
     id_auction: int('id_auction').primaryKey().autoincrement(),
-    item_id: int('id_item')
+    item_id: int('item_id')
         .notNull()
         .references(() => items.id_item, { onDelete: 'cascade' }),
     start_price: decimal('start_price', { precision: 10, scale: 2 }).notNull(),
@@ -35,13 +36,13 @@ export const auctions = mysqlTable('auctions', {
     start_time: timestamp('start_time').notNull(),
     end_time: timestamp('end_time').notNull(),
     status: statusEnum.notNull().default('pending'),
-    createdAt: timestamp('created_at').defaultNow(),
-    updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
+    createdAt: timestamp('createdAt').defaultNow(),
+    updatedAt: timestamp('updatedAt').defaultNow().onUpdateNow(),
 });
 
 export const watch_details = mysqlTable('watch_details', {
     id_watch_detail: int('id_watch_detail').primaryKey().autoincrement(),
-    item_id: int('id_item')
+    item_id: int('item_id')
         .notNull()
         .references(() => items.id_item, { onDelete: 'cascade' }),
     crystal: varchar('crystal', { length: 255 }).notNull(),
@@ -50,8 +51,8 @@ export const watch_details = mysqlTable('watch_details', {
     movement: varchar('movement', { length: 255 }),
     country: varchar('country', { length: 255 }).notNull(),
     accessories: varchar('accessories', { length: 255 }).notNull(),
-    createdAt: timestamp('created_at').defaultNow(),
-    updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
+    createdAt: timestamp('createdAt').defaultNow(),
+    updatedAt: timestamp('updatedAt').defaultNow().onUpdateNow(),
 });
 
 export const watches = mysqlTable('watches', {
