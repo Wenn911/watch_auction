@@ -17,11 +17,11 @@ export const Rollup = ({ label, children, defaultOpen = true }: RollupProps) => 
 
     return (
         <div className="w-auto rounded-lg bg-[#18181B] p-5">
-            <button onClick={toggle} className="flex w-full items-center justify-between focus:outline-none">
+            <button className="flex w-full items-center justify-between focus:outline-none" onClick={toggle}>
                 <AppText
                     size="L"
-                    variant="medium"
                     text={label}
+                    variant="medium"
                 />
                 <span className={`transform transition-transform duration-300 ${isOpen ? 'rotate-90' : 'rotate-0'}`}>
                     ▶
