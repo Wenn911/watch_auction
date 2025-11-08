@@ -1,13 +1,11 @@
-import { eq } from "drizzle-orm";
+import { eq } from 'drizzle-orm';
 
-import db from "$/db/database";
-import { watches } from "$/db/schema";
+import db from '$/db/database';
+import { watches } from '$/db/schema';
 
 export async function getWatches() {
     try {
-        const allWatches = await db
-            .select()
-            .from(watches);
+        const allWatches = await db.select().from(watches);
 
         return allWatches;
     } catch (error) {

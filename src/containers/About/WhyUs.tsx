@@ -1,11 +1,16 @@
-import { AppText } from "$/components/AppText";
+import { AppText } from '$/components/AppText';
 
 export const WhyUs = () => {
     return (
-        <div className="grid gap-12 bg-[rgba(87,92,112,0.3)] rounded-lg p-12">
-            <AppText className="text-(--primary)" size="L" variant="semibold" text="Почему выбирают нас?" />
-            <div className="flex flex-col ml-24">
-                <ul className="list-disc flex flex-col gap-12 text-(--primary)">
+        <div className="grid gap-12 rounded-lg bg-[rgba(87,92,112,0.3)] p-12">
+            <AppText
+                className="text-(--primary)"
+                size="L"
+                variant="semibold"
+                text="Почему выбирают нас?"
+            />
+            <div className="ml-24 flex flex-col">
+                <ul className="flex list-disc flex-col gap-12 text-(--primary)">
                     <li>
                         <AppText
                             size="M"

@@ -1,4 +1,3 @@
-
 export default {
     schema: './src/db/schema.ts',
     out: './drizzle',
@@ -10,7 +9,7 @@ export default {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         ssl: {
-            rejectUnauthorized: false
-        }
+            rejectUnauthorized: false,
+        },
     },
 };

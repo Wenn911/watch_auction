@@ -1,13 +1,14 @@
-import { getWatches } from "$/api";
+import { getWatches } from '$/api';
+import { Empty } from '$/components/Empty';
 
-import { ActiveAuction } from "./components";
+import { ActiveAuction } from './components';
 
 export const ActiveAuctions = async () => {
     const allWatches = await getWatches();
 
-    // if (isLoading) return <Skeleton width="100%" height="100%" />
-
-    // if (!data) return null
+    if (!allWatches.length) {
+        return <Empty text="Здесь пока нет активных аукционов" />;
+    }
 
     return (
         <div className="grid gap-16">

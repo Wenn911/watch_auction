@@ -1,0 +1,34 @@
+import { getWatch, getWatches } from '$/api';
+import { AppText } from '$/components/AppText';
+
+export async function generateStaticParams() {
+    const allItems = await getWatches();
+
+    return allItems.map((post) => ({
+        itemId: post.id.toString(),
+    }));
+}
+
+export default async function ItemPage({ params }: { params: Promise<{ itemId: string }> }) {
+    const { itemId } = await params;
+
+    const watch = await getWatch(parseInt(itemId));
+
+    if (!watch) return;
+
+    return (
+        <div className="grid gap-16">
+            <img
+                src={watch.image}
+                className="z-1 h-full w-full max-w-600 rounded-2xl"
+            />
+            <div>
+                <AppText
+                    size="L"
+                    variant="medium"
+                    text={watch.name}
+                />
+            </div>
+        </div>
+    );
+}
