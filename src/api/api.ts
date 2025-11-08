@@ -1,10 +1,6 @@
-import { eq } from 'drizzle-orm';
 import db from '$/db/database';
-import { watches } from '$/db/schema';
-import { items } from '$/db/schema';
-import { auctions } from '$/db/schema';
-import { categories } from '$/db/schema';
-import { watch_details } from '$/db/schema';
+import { auctions, categories, items, watch_details, watches } from '$/db/schema';
+import { eq } from 'drizzle-orm';
 
 export async function getActiveItems() {
     try {
@@ -24,7 +20,12 @@ export async function getItemCard(id: number) {
             .innerJoin(categories, eq(items.category_id, categories.id_category))
             .where(eq(items.id_item, id));
 
-        return item;
+        if (item.length === 0) {
+            return null;
+        }
+        
+        return item[0];
+
     } catch (error) {
         console.error('Error fetching watches:', error);
     }

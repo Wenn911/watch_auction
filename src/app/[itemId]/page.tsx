@@ -19,9 +19,7 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
         return <div>Товар не найден</div>;
     }
 
-    const itemData = item[0];
-
-    const { items, categories, watch_details } = itemData;
+    const { items, categories, watch_details } = item;
 
     const { name_category } = categories;
 
