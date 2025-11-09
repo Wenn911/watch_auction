@@ -24,7 +24,7 @@ export const NavbarElement = ({ link, name, icon: Icon }: NavbarElementProps) =>
                 height="28"
                 width="28"
             />
-            <AppText text={name} />
+            <AppText className='whitespace-pre' text={name} />
         </Link>
     );
 };

@@ -23,7 +23,7 @@ export const AuctionItem = ({ auction, item, category }: Props) => {
                 {image ? (
                     <Image
                         alt="img"
-                        className="z-1"
+                        className="object-cover z-1"
                         height="160"
                         src={image}
                         width="160"

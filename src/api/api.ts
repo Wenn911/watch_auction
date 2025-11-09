@@ -16,6 +16,11 @@ export async function getActiveItems() {
 
 export async function getItemCard(id: number) {
     try {
+
+        if (!id || isNaN(id) || id <= 0) {
+            return null;
+        }
+
         const item = await db.select().from(items).innerJoin(watch_details, eq(items.id_item, watch_details.item_id))
             .innerJoin(categories, eq(items.category_id, categories.id_category))
             .where(eq(items.id_item, id));
