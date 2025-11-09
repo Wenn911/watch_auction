@@ -1,30 +1,21 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import CopyIcon from '../../../../public/copy.svg';
 
 import { AppText } from '$/components/AppText';
-import { useCopyToClipboard } from '$/hooks';
-import type { Auction, Category, Item } from '../../../db/schema.ts';
+import type { Auction, Category, Item } from '../../db/schema';
+import { RefCodeCopy } from '../RefCodeCopy';
 
 interface Props {
-    auction: Auction,
-    item: Item,
-    category: Category
+    auction: Auction;
+    item: Item;
+    category: Category;
 }
 
-export const ActiveAuction = ({ auction, item, category }: Props) => {
+export const AuctionItem = ({ auction, item, category }: Props) => {
     const { id_auction, start_price, current_price, start_time, end_time, status} = auction;
     const { refCode, brand_name, model, image } = item;
     const { name_category } = category;
-
-    const { isCopied, copyToClipboard } = useCopyToClipboard(refCode);
-
-    const handleCopyClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        e.preventDefault();
-        copyToClipboard();
-    };
 
     return (
         <Link href={`/${id_auction}`}>
@@ -42,23 +33,7 @@ export const ActiveAuction = ({ auction, item, category }: Props) => {
                 )}
 
                 <div className="z-1 grid grid-rows-[auto_1fr_auto] gap-16 py-20">
-                    <div
-                        className="flex w-fit cursor-pointer gap-4 rounded-lg bg-[rgba(87,92,112,0.5)] px-4 py-2 text-[rgba(255,255,255,0.6)] hover:bg-[rgba(87,92,112,0.7)] hover:text-[rgba(255,255,255)] transition-all duration-200 active:scale-95 active:bg-[rgba(87,92,112,0.7)]"
-                        onClick={handleCopyClick}
-                    >
-                        {isCopied ? (
-                            <AppText text="Скопировано" />
-                        ) : (
-                            <>
-                                <AppText
-                                    size="S"
-                                    text={refCode}
-                                />
-
-                                <CopyIcon />
-                            </>
-                        )}
-                    </div>
+                    <RefCodeCopy refCode={refCode} />
 
                     <div className="flex flex-col gap-12">
                         <AppText

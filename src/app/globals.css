@@ -8,7 +8,9 @@
 }
 
 :root {
-  --primary: #1a6159
+  --primary: #1a6159;
+
+  --bg-primary: hsl(240deg 6.12% 9.61%);
 }
 
 * {
