@@ -3,7 +3,7 @@ import { HowItWorks, Info, Security, WhatIsIt, WhyUs } from '$/containers/About'
 
 const AboutPage = async () => {
     return (
-        <section className="grid gap-24 px-24">
+        <section className="grid gap-24">
             <AppText
                 size="L"
                 text="О проекте"

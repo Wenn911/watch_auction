@@ -1,6 +1,5 @@
 import { getItemCard, getItems } from '$/api';
-import { AppText } from '$/components/AppText';
-import { Rollup } from '../../components/RollUp';
+import { Details, Info } from '$/containers/AuctionId';
 
 export async function generateStaticParams() {
     const allItems = await getItems();
@@ -19,98 +18,10 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
         return <div>Товар не найден</div>;
     }
 
-    const { items, categories, watch_details } = item;
-
-    const { name_category } = categories;
-
-    const { brand_name, image, item_condition, material, model, productionYear} = items
-
-    const { accessories, country, crystal, dial, diameter, movement } = watch_details;
-
     return (
         <div className="grid gap-16">
-            <div className="flex w-full flex-col gap-10 rounded-lg bg-[#18181B] p-10 lg:min-h-56">
-                <div className="flex justify-center rounded-md">
-                    <img
-                        className="z-1 h-full w-full max-w-600 rounded-2xl"
-                        src={image}
-                    />
-                </div>
-                <div className="flex flex-col justify-between">
-                    <AppText
-                        size="L"
-                        text={brand_name}
-                        variant="medium"
-                    />
-                    <AppText
-                        size="M"
-                        text={model}
-                        variant="medium"
-                    />
-                </div>
-            </div>
-            <div className="w-auto rounded-lg bg-[#18181B] pt-20 pr-20 pb-20 pl-20">
-                <Rollup label="Listing Details">
-                    <div className="space-y-4 pt-6 pb-4">
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Type:" variant="medium" />
-                            <AppText size="M" text={name_category} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Country:" variant="medium" />
-                            <AppText size="M" text={country} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Condition:" variant="medium" />
-                            <AppText size="M" text={item_condition} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Accessories:" variant="medium" />
-                            <AppText size="M" text={accessories} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Production Year:" variant="medium" />
-                            <AppText size="M" text={productionYear.toString()} />
-                        </div>
-                    </div>
-                </Rollup>
-            </div>
-            <div className="w-auto rounded-lg bg-[#18181B] pt-20 pr-20 pb-20 pl-20">
-                <Rollup label="Item Details">
-                    <div className="space-y-4 pt-6 pb-4">
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Brand:" variant="medium" />
-                            <AppText size="M" text={brand_name} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Model:" variant="medium" />
-                            <AppText size="M" text={model} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Crystal:" variant="medium" />
-                            <AppText size="M" text={crystal} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Dial:" variant="medium" />
-                            <AppText size="M" text={dial} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Diameter:" variant="medium" />
-                            <AppText size="M" text={diameter} />
-                        </div>
-                        <div className="flex items-center justify-between p-5">
-                            <AppText size="M" text="Material:" variant="medium" />
-                            <AppText size="M" text={material} />
-                        </div>
-                        {movement && (
-                            <div className="flex items-center justify-between p-5">
-                                <AppText size="M" text="Movement:" variant="medium" />
-                                <AppText size="M" text={movement} />
-                            </div>
-                        )}
-                    </div>
-                </Rollup>
-            </div>
+            <Info data={item.items} />
+            <Details data={item} />
         </div>
     );
 }

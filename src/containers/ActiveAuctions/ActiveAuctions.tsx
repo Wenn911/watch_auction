@@ -1,7 +1,6 @@
 import { getActiveItems } from '$/api';
+import { AuctionItem } from '$/components/AuctionItem';
 import { Empty } from '$/components/Empty';
-
-import { ActiveAuction } from './components';
 
 export const ActiveAuctions = async () => {
     const allActiveItems = await getActiveItems();
@@ -13,7 +12,7 @@ export const ActiveAuctions = async () => {
     return (
         <div className="grid gap-16">
             {allActiveItems.map((item) => (
-                <ActiveAuction
+                <AuctionItem
                     key={item.auctions.id_auction}
                     auction={item.auctions}
                     category={item.categories}
