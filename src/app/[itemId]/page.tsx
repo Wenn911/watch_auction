@@ -13,7 +13,7 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
     const { itemId } = await params;
 
     const item = await getItemCard(parseInt(itemId));
-
+    
     if (!item) {
         return <div>Товар не найден</div>;
     }
