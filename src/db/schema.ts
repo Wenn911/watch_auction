@@ -55,34 +55,19 @@ export const watch_details = mysqlTable('watch_details', {
     updatedAt: timestamp('updatedAt').defaultNow().onUpdateNow(),
 });
 
-export const watches = mysqlTable('watches', {
-    id: int('id').primaryKey().autoincrement(),
-    name: varchar('name', { length: 255 }).notNull(),
-    model: varchar('model', { length: 255 }).notNull(),
-    price: varchar('price', { length: 255 }).notNull(),
-    startTime: varchar('startTime', { length: 255 }),
-    endTime: varchar('endTime', { length: 255 }),
-    image: varchar('image', { length: 255 }).notNull(),
-    createdAt: timestamp('created_at').defaultNow(),
-    updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
-    refCode: varchar('refCode', { length: 255 }).notNull(),
-});
-
-export const bids = mysqlTable('bids', {
-    id: int('id').primaryKey().autoincrement(),
-    amount: int('amount').notNull(),
-    itemId: int('itemId')
+export const item_images = mysqlTable('item_images', {
+    id_image: int('id_image').primaryKey().autoincrement(),
+    item_id: int('item_id')
         .notNull()
-        .references(() => watches.id, { onDelete: 'cascade' }),
-    timestamp: timestamp('timestamp', { mode: 'date' }).notNull(),
-});
+        .references(() => items.id_item, { onDelete: 'cascade' }),
+    image: varchar('image', { length: 255 }).notNull()
+})
 
 export type Category = typeof categories.$inferSelect;
 export type Item = typeof items.$inferSelect;
 export type Auction = typeof auctions.$inferSelect;
 export type Watch_detail = typeof watch_details.$inferSelect;
-export type Watch = typeof watches.$inferSelect;
-export type Bid = typeof bids.$inferSelect;
+export type Item_image = typeof item_images.$inferSelect;
 
 export type Status = typeof auctions.$inferSelect.status;
 export type ItemCondition = typeof items.$inferSelect.item_condition;
