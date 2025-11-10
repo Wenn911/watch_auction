@@ -33,7 +33,7 @@ export const Navbar = () => {
                     height="28"
                     width="28"
                 />
-                <AppText text="Предложить" />
+                <AppText className='whitespace-pre font-size 10px line-height 16px letter-spacing 0.01em' text="Предложить" />
             </div>
         </nav>
     );
