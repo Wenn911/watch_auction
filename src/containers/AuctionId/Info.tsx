@@ -4,12 +4,17 @@ import { AppText } from "$/components/AppText";
 import { RefCodeCopy } from "$/components/RefCodeCopy";
 import type { Item } from "$/db/schema";
 
-export const Info = ({ data }: { data: Item }) => {
-    const { image, brand_name, model, refCode } = data;
+interface Props {
+    data: Item;
+    images: string[];
+}
 
+export const Info = ({ data, images }: Props) => {
+    const { brand_name, model, refCode } = data;
+        
     return (
         <div className="flex w-full flex-col gap-24 rounded-lg bg-(--bg-primary) p-10">
-            <AppSwiper images={[image, image]} />
+            <AppSwiper images={images} />
             <div className="flex flex-col">
                 <RefCodeCopy refCode={refCode} />
                 <div className="py-8">

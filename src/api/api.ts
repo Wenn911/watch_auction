@@ -1,6 +1,6 @@
 import db from '$/db/database';
 import { auctions, categories, item_images, items, watch_details } from '$/db/schema';
-import { eq } from 'drizzle-orm';
+import { and, eq, isNotNull } from 'drizzle-orm';
 
 export async function getActiveItems() {
     try {
@@ -25,7 +25,6 @@ export async function getItemCard(id: number) {
         const item = await db.select().from(items)
             .innerJoin(watch_details, eq(items.id_item, watch_details.item_id))
             .innerJoin(categories, eq(items.category_id, categories.id_category))
-            .innerJoin(item_images, eq(items.id_item, item_images.item_id))
             .where(eq(items.id_item, id));
 
         if (item.length === 0) {
@@ -48,4 +47,33 @@ export async function getItems() {
         console.error('Error fetching watches:', error);
         return [];
     }
+}
+
+export async function getItemImages(id: number) {
+    try {
+        
+        if (!id || isNaN(id) || id <= 0) {
+            return null;
+        }
+        const mainImageQuery = await db.select({ image: items.image }).from(items).where(and(eq(items.id_item, id), isNotNull(items.image)));
+
+        const itemImagesQuery = await db.select().from(item_images).where(eq(item_images.item_id, id));
+
+        const mainImage = mainImageQuery.map((im) => im.image);
+
+        const itemImages = itemImagesQuery.map((image) => image.images);
+        
+        if (itemImages.length === 0 && mainImage.length === 0) {
+            return [];
+        }
+        
+        const allImagesArray = [...mainImage, ...itemImages];
+        
+        return allImagesArray;
+
+    } catch (error) {
+        console.error('Error fetching watches:', error);
+        return [];
+    }
+    
 }

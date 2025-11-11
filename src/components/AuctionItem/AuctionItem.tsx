@@ -29,7 +29,12 @@ export const AuctionItem = ({ auction, item, category }: Props) => {
                         width="160"
                     />
                 ) : (
-                    <div className="z-1 h-160 w-160 bg-[rgba(87,92,112,0.5)]" />
+                    <AppText 
+                        className="text-(--primary) select-none text-center flex items-center justify-items-center justify-center bg-[rgba(87,92,112,0.5)] rounded-2xl m-8"
+                        size="XL"
+                        text="Изображения отсутствуют"
+                        variant="semibold"
+                    />
                 )}
 
                 <div className="z-1 grid grid-rows-[auto_1fr_auto] gap-16 py-20">

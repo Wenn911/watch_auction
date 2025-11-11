@@ -60,7 +60,7 @@ export const item_images = mysqlTable('item_images', {
     item_id: int('item_id')
         .notNull()
         .references(() => items.id_item, { onDelete: 'cascade' }),
-    image: varchar('image', { length: 255 }).notNull()
+    images: varchar('images', { length: 255 }).notNull()
 })
 
 export type Category = typeof categories.$inferSelect;
