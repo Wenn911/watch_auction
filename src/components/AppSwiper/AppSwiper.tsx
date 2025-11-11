@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { AppText } from '../AppText';
 
 const NavigationButtons = () => {
     const swiper = useSwiper();
@@ -41,6 +42,20 @@ const NavigationButtons = () => {
 };
 
 export const AppSwiper = ({ images }: { images: string[] }) => {
+
+    if (!images || images.length === 0) {
+        return (
+            <div className='w-full h-318 flex items-center justify-center bg-gray-200 rounded-2xl'>
+                <AppText 
+                    className="text-(--primary) select-none"
+                    size="XL"
+                    text="Изображения отсутствуют"
+                    variant="semibold"
+                />
+            </div>
+        )
+    }
+
     return (
         <div className="relative">
             <Swiper
@@ -49,16 +64,19 @@ export const AppSwiper = ({ images }: { images: string[] }) => {
                 slidesPerView={1}
                 spaceBetween={10}
             >
-                {images.map((image, index) => (
-                    <SwiperSlide key={`${index} - ${image}`}>
+                {images.map((image) => (
+                    <SwiperSlide key={`${image}`}>
                         <img
-                            alt={`Slide ${index + 1}`}
+                            alt={`Slide ${image}`}
                             className="z-1 h-full w-full rounded-2xl object-cover"
                             src={image}
                         />
                     </SwiperSlide>
                 ))}
-                <NavigationButtons />
+                {images && images.length > 1 && (
+                    <NavigationButtons />
+                )}
+                
             </Swiper>
         </div>
     );
