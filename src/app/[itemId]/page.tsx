@@ -1,5 +1,5 @@
-import { getItemCard, getActiveItems, getItemImages } from '$/api';
-import { Details, Info } from '$/containers/AuctionId';
+import { getActiveItems, getItemCard, getItemImages } from '$/api';
+import { Bids, Details, Info } from '$/containers/AuctionId';
 
 export async function generateStaticParams() {
     const allItems = await getActiveItems();
@@ -28,6 +28,7 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
         <div className="grid gap-16">
             <Info data={item.items} images={images} />
             <Details data={item} />
+            <Bids />
         </div>
     );
 }
