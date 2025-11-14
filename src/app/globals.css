@@ -11,6 +11,7 @@
   --primary: #1a6159;
 
   --bg-primary: hsl(240deg 6.12% 9.61%);
+  --button-primary: rgb(63, 63, 70)
 }
 
 * {

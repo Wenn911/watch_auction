@@ -30,7 +30,7 @@ export const Info = ({ data, images }: Props) => {
                     />
                 </div>
                 <AppText className="text-[rgba(255,255,255,0.6)]" text="1234$" />
-                <button className="flex items-center justify-center py-8 mt-16 rounded-xl bg-[rgb(63_63_70)]">Выкупить</button>
+                <button className="flex items-center justify-center py-8 mt-16 rounded-xl bg-(--button-primary)">Выкупить</button>
             </div>
         </div>
     )
