@@ -1,9 +1,10 @@
 import { AppDropdown } from "$/components/AppDropdown";
 import { AppText } from "$/components/AppText";
-import type { Category, Item, Watch_detail } from "$/db/schema";
+import type { Category, Item, Item_instance, Watch_detail } from "$/db/schema";
 
 interface DetaildProps { 
     data: {
+        item_instances: Item_instance;
         categories: Category;
         items: Item;
         watch_details: Watch_detail
@@ -11,11 +12,13 @@ interface DetaildProps {
 }
 
 export const Details = ({ data }: DetaildProps) => {
-    const { categories, items, watch_details } = data;
+    const { categories, items, watch_details, item_instances } = data;
 
     const { name_category } = categories
 
-    const { item_condition, productionYear, brand_name, model, material } = items;
+    const { brand_name, model, material } = items;
+
+    const { productionYear, item_condition } = item_instances;
 
     const { accessories, country, crystal, dial, diameter, movement } = watch_details;
 

@@ -3,18 +3,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { AppText } from '$/components/AppText';
-import type { Auction, Category, Item } from '../../db/schema';
+import type { Auction, Category, Item, Item_instance } from '../../db/schema';
 import { RefCodeCopy } from '../RefCodeCopy';
 
 interface Props {
     auction: Auction;
+    instance: Item_instance;
     item: Item;
     category: Category;
 }
 
-export const AuctionItem = ({ auction, item, category }: Props) => {
+export const AuctionItem = ({ auction, instance, item, category }: Props) => {
     const { id_auction, start_price, current_price, start_time, end_time, status} = auction;
-    const { refCode, brand_name, model, image } = item;
+    const { refCode } = instance;
+    const { brand_name, model, image } = item;
     const { name_category } = category;
 
     return (

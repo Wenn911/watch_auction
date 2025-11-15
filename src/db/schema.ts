@@ -15,22 +15,29 @@ export const items = mysqlTable('items', {
     category_id: int('category_id')
         .notNull()
         .references(() => categories.id_category, { onDelete: 'cascade' }),
-    refCode: varchar('refCode', { length: 255 }).notNull(),
     brand_name: varchar('brand_name', { length: 255 }).notNull(),
     model: varchar('model', { length: 255 }).notNull(),
-    item_condition: itemConditionEnum.notNull(),
     material: varchar('material', { length: 255 }).notNull(),
-    productionYear: int('productionYear').notNull(),
     image: varchar('image', { length: 255 }).notNull(),
     createdAt: timestamp('createdAt').defaultNow(),
     updatedAt: timestamp('updatedAt').defaultNow().onUpdateNow(),
 });
 
-export const auctions = mysqlTable('auctions', {
-    id_auction: int('id_auction').primaryKey().autoincrement(),
+export const item_instances = mysqlTable('item_instances', {
+    id_instance: int('id_instance').primaryKey().autoincrement(),
     item_id: int('item_id')
         .notNull()
-        .references(() => items.id_item, { onDelete: 'cascade' }),
+        .references(() => items.id_item, { onDelete: 'cascade', onUpdate: 'cascade'}),
+    refCode: varchar('refCode', { length: 255 }).notNull(),
+    productionYear: int('productionYear').notNull(),
+    item_condition: itemConditionEnum.notNull(),
+})
+
+export const auctions = mysqlTable('auctions', {
+    id_auction: int('id_auction').primaryKey().autoincrement(),
+    instance_id: int('instance_id')
+        .notNull()
+        .references(() => item_instances.id_instance, { onDelete: 'cascade', onUpdate: 'cascade' }),
     start_price: decimal('start_price', { precision: 10, scale: 2 }).notNull(),
     current_price: decimal('current_price', { precision: 10, scale: 2 }),
     start_time: timestamp('start_time').notNull(),
@@ -42,13 +49,13 @@ export const auctions = mysqlTable('auctions', {
 
 export const watch_details = mysqlTable('watch_details', {
     id_watch_detail: int('id_watch_detail').primaryKey().autoincrement(),
-    item_id: int('item_id')
+    instance_id: int('instance_id')
         .notNull()
-        .references(() => items.id_item, { onDelete: 'cascade' }),
+        .references(() => item_instances.id_instance, { onDelete: 'cascade', onUpdate: 'cascade' }),
     crystal: varchar('crystal', { length: 255 }).notNull(),
     dial: varchar('dial', { length: 255 }).notNull(),
     diameter: varchar('diameter', { length: 20 }).notNull(),
-    movement: varchar('movement', { length: 255 }),
+    movement: varchar('movement', { length: 255 }).notNull(),
     country: varchar('country', { length: 255 }).notNull(),
     accessories: varchar('accessories', { length: 255 }).notNull(),
     createdAt: timestamp('createdAt').defaultNow(),
@@ -68,6 +75,7 @@ export type Item = typeof items.$inferSelect;
 export type Auction = typeof auctions.$inferSelect;
 export type Watch_detail = typeof watch_details.$inferSelect;
 export type Item_image = typeof item_images.$inferSelect;
+export type Item_instance = typeof item_instances.$inferSelect;
 
 export type Status = typeof auctions.$inferSelect.status;
-export type ItemCondition = typeof items.$inferSelect.item_condition;
+export type ItemCondition = typeof item_instances.$inferSelect.item_condition;
