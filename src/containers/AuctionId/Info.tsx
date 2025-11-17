@@ -2,15 +2,17 @@
 import { AppSwiper } from "$/components/AppSwiper";
 import { AppText } from "$/components/AppText";
 import { RefCodeCopy } from "$/components/RefCodeCopy";
-import type { Item } from "$/db/schema";
+import type { Item, Item_instance } from "$/db/schema";
 
 interface Props {
-    data: Item;
+    dataInstance: Item_instance;
+    dataItem: Item;
     images: string[];
 }
 
-export const Info = ({ data, images }: Props) => {
-    const { brand_name, model, refCode } = data;
+export const Info = ({ dataInstance, dataItem, images }: Props) => {
+    const { brand_name, model } = dataItem;
+    const { refCode } = dataInstance;
         
     return (
         <div className="flex w-full flex-col gap-24 rounded-lg bg-(--bg-primary) p-10">

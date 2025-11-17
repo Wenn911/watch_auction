@@ -5,7 +5,7 @@ export async function generateStaticParams() {
     const allItems = await getActiveItems();
 
     return allItems.map((post) => ({
-        itemId: post.items.id_item.toString(),
+        itemId: post.auctions.id_auction.toString(),
     }));
 }
 
@@ -13,9 +13,9 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
     const { itemId } = await params;
 
     const item = await getItemCard(parseInt(itemId));
-    
+
     const images = await getItemImages(parseInt(itemId));
-    
+
     if (!images) {
         return null;
     }
@@ -26,7 +26,7 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
 
     return (
         <div className="grid gap-16">
-            <Info data={item.items} images={images} />
+            <Info dataInstance={item.item_instances} dataItem={item.items} images={images} />
             <Details data={item} />
             <Bids />
         </div>
