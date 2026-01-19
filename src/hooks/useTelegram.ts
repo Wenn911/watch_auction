@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 
 import type { WebApp, WebAppUser } from 'telegram-web-app';
@@ -33,7 +31,15 @@ export const useTelegram = () => {
     }, []);
 
     const showAlert = (message: string) => {
-        window.Telegram?.WebApp.showAlert(message);
+        if (isTelegram && window.Telegram?.WebApp?.showAlert) {
+            try {
+                window.Telegram.WebApp.showAlert(message);
+                return;
+            } catch (error) {
+                console.error('Telegram showAlert error:', error);
+            }
+        }
+        alert(message);
     };
 
     const closeApp = () => {

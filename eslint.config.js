@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
     {
-        ignores: ['.next/**', "next.config.ts", '**/*.d.ts', 'node_modules/**', 'dist', '*.js', "drizzle.config.ts"],
+        ignores: ['.next/**', "__mocks__", "vite.config.ts", '**/*.d.ts', 'node_modules/**', 'dist', '*.js', "drizzle.config.ts"],
     },
     {
         plugins: {

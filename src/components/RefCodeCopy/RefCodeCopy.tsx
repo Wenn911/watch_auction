@@ -1,6 +1,6 @@
 'use client'
 import { useCopyToClipboard } from "$/hooks";
-import CopyIcon from '@/public/copy.svg';
+import CopyIcon from '../../assets/copy.svg?react';
 import { AppText } from "../AppText";
 
 export const RefCodeCopy = ({ refCode }: { refCode: string }) => {

@@ -1,9 +1,13 @@
-import { getActiveItems } from '$/api';
 import { AuctionItem } from '$/components/AuctionItem';
 import { Empty } from '$/components/Empty';
+import { useGetActiveItemsQuery } from '$/store/api';
 
-export const ActiveAuctions = async () => {
-    const allActiveItems = await getActiveItems();
+export const ActiveAuctions = () => {
+    const { data: allActiveItems = [], isLoading } = useGetActiveItemsQuery();
+
+    if (isLoading) {
+        return <div>Загрузка...</div>;
+    }
 
     if (!allActiveItems.length) {
         return <Empty text="Здесь пока нет активных аукционов" />;

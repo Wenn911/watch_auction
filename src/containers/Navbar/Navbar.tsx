@@ -1,10 +1,8 @@
-'use client';
-
 import { AppText } from '$/components/AppText';
 import { navbarElements } from '$/constants';
 import { useTelegram } from '$/hooks';
 
-import PlusIcon from '../../../public/plus.svg';
+import PlusIcon from '../../assets/plus.svg?react';
 
 import { NavbarElement } from './components';
 

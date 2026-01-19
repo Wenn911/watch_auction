@@ -1,10 +1,9 @@
 import { AppText } from '$/components/AppText';
-import Image from 'next/image';
 
 export const Info = () => {
     return (
         <div className="grid gap-12 rounded-lg bg-[rgba(87,92,112,0.3)] p-12">
-            <Image
+            <img
                 alt="header"
                 className="w-full rounded-lg"
                 height="0"
