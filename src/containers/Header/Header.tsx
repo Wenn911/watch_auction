@@ -1,36 +1,29 @@
-'use client';
-
-import { useMemo } from 'react';
-
-import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
-
 import { AppText } from '$/components/AppText';
+import { useMemo } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import BackButton from '../../assets/backButton.svg?react';
 
 export const Header = () => {
-    const router = useRouter();
-    const pathname = usePathname();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const showBackButton = useMemo(() => !/\/(active|win|saved|end)$/gi.test(pathname), [pathname]);
+    const showBackButton = useMemo(() => !/\/(active|win|saved|end)$/gi.test(location.pathname), [location.pathname]);
 
-    const goBack = () => router.back();
+    const goBack = () => navigate(-1);
 
     return (
         <header className="sticky top-0 z-2 flex items-center gap-12 border-b border-white/20 bg-black px-24 py-12">
-            <Image
+            <img
                 alt="header"
-                height="32"
+                className="h-8 w-8"
                 src="/logo.png"
-                width="32"
             />
             <button
                 className={`flex items-center gap-8 no-underline ${showBackButton ? 'visible' : 'invisible'}`}
                 onClick={goBack}
             >
-                <Image
-                    alt="BackButton"
+                <BackButton
                     height="24"
-                    src="/backButton.svg"
                     width="24"
                 />
                 <AppText

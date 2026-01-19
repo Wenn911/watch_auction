@@ -1,7 +1,4 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-
+import { Link } from 'react-router-dom';
 import { AppText } from '$/components/AppText';
 import type { Auction, Category, Item, Item_instance } from '../../db/schema';
 import { RefCodeCopy } from '../RefCodeCopy';
@@ -20,15 +17,13 @@ export const AuctionItem = ({ auction, instance, item, category }: Props) => {
     const { name_category } = category;
 
     return (
-        <Link href={`/${id_auction}`}>
+        <Link to={`/${item.id_item}`}>
             <div className="relative flex w-full gap-18 overflow-hidden rounded-lg bg-[rgba(87,92,112,0.3)] before:absolute before:top-[-110px] before:left-169 before:h-200 before:w-200 before:rounded-full before:bg-[radial-gradient(66.32%_66.32%_at_50%_50%,var(--primary)_0%,rgba(0,0,0,0)_100%)] before:blur-[76px] before:content-[''] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]">
                 {image ? (
-                    <Image
+                    <img
                         alt="img"
-                        className="object-cover z-1"
-                        height="160"
+                        className="object-cover z-1 h-[160px] w-[160px]"
                         src={image}
-                        width="160"
                     />
                 ) : (
                     <AppText 

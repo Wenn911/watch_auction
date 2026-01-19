@@ -1,4 +1,4 @@
-import SmileIcon from '../../../public/smile.svg';
+import SmileIcon from '../../assets/smile.svg?react';
 
 import { AppText } from '../AppText';
 

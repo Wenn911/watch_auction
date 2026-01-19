@@ -1,4 +1,4 @@
-import { getActiveItems, getItemCard, getItemImages } from '$/api';
+import { getActiveItems, getAuctionByItemId, getItemCard, getItemImages } from '$/api';
 import { Bids, Details, Info } from '$/containers/AuctionId';
 
 export async function generateStaticParams() {
@@ -15,7 +15,9 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
     const item = await getItemCard(parseInt(itemId));
 
     const images = await getItemImages(parseInt(itemId));
-
+    
+    const auction = await getAuctionByItemId(parseInt(itemId));
+    
     if (!images) {
         return null;
     }
@@ -24,11 +26,15 @@ export default async function ItemPage({ params }: { params: Promise<{ itemId: s
         return <div>Товар не найден</div>;
     }
 
+    if (!auction) {
+        return <div>Аукцион не найден</div>;
+    }
+
     return (
         <div className="grid gap-16">
             <Info dataInstance={item.item_instances} dataItem={item.items} images={images} />
             <Details data={item} />
-            <Bids />
+            <Bids auction={auction} />
         </div>
     );
 }

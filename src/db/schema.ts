@@ -70,12 +70,23 @@ export const item_images = mysqlTable('item_images', {
     images: varchar('images', { length: 255 }).notNull()
 })
 
+export const bids = mysqlTable('bids', {
+    id_bid: int('id_bid').primaryKey().autoincrement(),
+    auction_id: int('auction_id')
+        .notNull()
+        .references(() => auctions.id_auction, { onDelete: 'cascade' }),
+    user_id: varchar('user_id', { length: 255 }).notNull(), // Telegram user ID или другой идентификатор
+    amount: decimal('amount', { precision: 10, scale: 2 }).notNull(),
+    createdAt: timestamp('createdAt').defaultNow(),
+});
+
 export type Category = typeof categories.$inferSelect;
 export type Item = typeof items.$inferSelect;
 export type Auction = typeof auctions.$inferSelect;
 export type Watch_detail = typeof watch_details.$inferSelect;
 export type Item_image = typeof item_images.$inferSelect;
 export type Item_instance = typeof item_instances.$inferSelect;
+export type Bid = typeof bids.$inferSelect;
 
 export type Status = typeof auctions.$inferSelect.status;
 export type ItemCondition = typeof item_instances.$inferSelect.item_condition;

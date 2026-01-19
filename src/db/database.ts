@@ -2,7 +2,7 @@ import { drizzle } from 'drizzle-orm/mysql2';
 import type { PoolOptions } from 'mysql2/promise';
 import mysql from 'mysql2/promise';
 
-import * as schema from './schema';
+import * as schema from './schema.js';
 
 const dbConfig: PoolOptions = {
     host: process.env.DB_HOST,

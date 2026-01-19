@@ -1,7 +1,7 @@
-import AboutIcon from '@/public/about.svg';
-import ActiveAuctionsIcon from '@/public/activeAuctions.svg';
-import EndIcon from '@/public/endAuctions.svg';
-import MedalIcon from '@/public/medal.svg';
+import AboutIcon from '../assets/about.svg?react';
+import ActiveAuctionsIcon from '../assets/activeAuctions.svg?react';
+import EndIcon from '../assets/endAuctions.svg?react';
+import MedalIcon from '../assets/medal.svg?react';
 
 export const navbarElements = [
     {

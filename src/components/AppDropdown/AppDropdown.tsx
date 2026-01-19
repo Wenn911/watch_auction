@@ -1,8 +1,8 @@
 'use client';
 
-import ArrowIcon from '@/public/arrow-down.svg';
 import type { ReactNode } from 'react';
 import { useRef, useState } from 'react';
+import ArrowIcon from '../../assets/arrow-down.svg?react';
 import { AppText } from "../AppText";
 
 interface AppDropdownProps {

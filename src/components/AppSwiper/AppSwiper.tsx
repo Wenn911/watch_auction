@@ -1,10 +1,10 @@
 'use client'
-import Chevron from '@/public/chevron-right.svg';
 import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import Chevron from '../../assets/chevron-right.svg?react';
 import { AppText } from '../AppText';
 
 const NavigationButtons = () => {
